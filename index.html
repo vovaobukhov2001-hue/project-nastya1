@@ -1,0 +1,146 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0d1021">
+
+    <title>Для Насти ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<audio id="music" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Экран 1 -->
+<section class="screen active" id="screen1">
+    <div class="glass">
+        <h1>Привет, Настя ❤️</h1>
+
+        <p class="typing">
+            Я хотел придумать для тебя кое-что необычное...
+        </p>
+
+        <button onclick="nextScreen()">
+            ✨ Начать
+        </button>
+    </div>
+</section>
+
+<!-- Экран 2 -->
+<section class="screen">
+    <div class="glass">
+        <h2>У меня есть одна идея...</h2>
+
+        <p>
+            Мне хочется провести с тобой время
+            и устроить небольшой побег от повседневных забот.
+
+            <br><br>
+
+            Только мы, уютная атмосфера
+            и вечер, который запомнится.
+        </p>
+
+        <button onclick="nextScreen()">
+            Продолжить ❤️
+        </button>
+    </div>
+</section>
+
+<!-- Экран 3 -->
+<section class="screen">
+    <img src="assets/nastya.jpg"
+         class="photo"
+         alt="Настя">
+
+    <div class="glass">
+        <h2>Для тебя ❤️</h2>
+
+        <p>
+            Иногда для хорошего вечера
+            не нужно ничего грандиозного.
+
+            <br><br>
+
+            Главное — приятная компания,
+            искренние разговоры и хорошее настроение.
+        </p>
+
+        <button onclick="nextScreen()">
+            Дальше ✨
+        </button>
+    </div>
+</section>
+
+<!-- Экран 4 -->
+<section class="screen">
+    <div class="glass">
+        <h2>🍿 Моя идея для вечера</h2>
+
+        <p>
+            🎬 Посмотреть хороший фильм
+
+            <br><br>
+
+            💨 Расслабиться и отдохнуть
+
+            <br><br>
+
+            ☕ Поговорить обо всём на свете
+
+            <br><br>
+
+            😊 Посмеяться и хорошо провести время
+        </p>
+
+        <h3>📅 Дату выберем вместе</h3>
+
+        <button onclick="nextScreen()">
+            И ещё кое-что ❤️
+        </button>
+    </div>
+</section>
+
+<!-- Финальный экран -->
+<section class="screen" id="final">
+    <div class="glass">
+        <h1>💖</h1>
+
+        <h2>Настя...</h2>
+
+        <h3>
+            Как тебе идея провести этот вечер вместе со мной?
+        </h3>
+
+        <div class="buttons">
+            <button id="yes">
+                Да ❤️
+            </button>
+
+            <button id="no">
+                Нужно подумать 🙂
+            </button>
+        </div>
+    </div>
+</section>
+
+<div id="confetti"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
+
