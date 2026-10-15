@@ -1,0 +1,280 @@
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: dark;
+    --pink: #ff8fb1;
+    --purple: #a78bfa;
+    --glass: rgba(255, 255, 255, 0.08);
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at 20% 20%, #29204d 0%, transparent 45%),
+        radial-gradient(ellipse at 80% 80%, #351b42 0%, transparent 45%),
+        #0d1021;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+button {
+    font: inherit;
+}
+
+#stars {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.65;
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.15; transform: scale(0.7); }
+    to { opacity: 0.9; transform: scale(1.5); }
+}
+
+.screen {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    width: 100%;
+    padding: 36px 20px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.screen.active {
+    display: flex;
+    animation: appear 0.75s ease both;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.glass {
+    width: min(100%, 590px);
+    padding: clamp(25px, 5vw, 46px);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 28px;
+    background: var(--glass);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.3),
+        inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-size: clamp(2rem, 6vw, 3.1rem);
+    line-height: 1.2;
+    background: linear-gradient(100deg, #fff, #ffc1d6, #c7b5ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+h2 {
+    margin: 0 0 20px;
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    line-height: 1.3;
+}
+
+h3 {
+    line-height: 1.55;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.83);
+    font-size: clamp(1rem, 2.5vw, 1.08rem);
+    line-height: 1.9;
+    white-space: normal;
+}
+
+.typing {
+    min-height: 3.8em;
+}
+
+button {
+    display: inline-block;
+    max-width: 100%;
+    margin-top: 16px;
+    padding: 14px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    background: linear-gradient(110deg, #ff7eaa, #b28aff);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 28px rgba(206, 110, 203, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(206, 110, 203, 0.35);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.photo {
+    display: block;
+    width: min(100%, 300px);
+    max-height: 42vh;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+#no {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+
+#confetti {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.petal,
+.confetti-piece {
+    position: absolute;
+    top: -30px;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+.petal {
+    color: #ff8fb1;
+    font-size: 20px;
+    text-shadow: 0 0 12px rgba(255, 100, 160, 0.5);
+}
+
+.confetti-piece {
+    width: 9px;
+    height: 13px;
+    border-radius: 3px;
+}
+
+@keyframes fall {
+    to {
+        transform: translate3d(var(--drift, 30px), 110vh, 0) rotate(720deg);
+        opacity: 0.2;
+    }
+}
+
+@media (max-width: 480px) {
+    .screen {
+        padding: 20px 14px;
+    }
+
+    .glass {
+        padding: 26px 20px;
+        border-radius: 22px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons button {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .photo {
+        max-height: 35vh;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* Область двух кнопок */
+.buttons {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    min-height: 150px;
+    width: 100%;
+    max-width: 420px;
+    margin: 20px auto 0;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+/* Кнопка «Да» всегда остаётся на месте */
+.buttons #yes {
+    position: relative;
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+/* Кнопка «Нужно подумать» убегает */
+.buttons #no {
+    position: absolute;
+    left: 55%;
+    top: 5px;
+    max-width: calc(100% - 10px);
+    white-space: normal;
+    z-index: 3;
+    transition: left 0.18s ease, top 0.18s ease;
+}
